@@ -10,11 +10,11 @@ using Newtonsoft.Json;
 
 namespace Service.Function
 {
-    public static class PostCustomer
+    public static class PostService
     {
-        [FunctionName("PostCustomer")]
+        [FunctionName("PostService")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "postcustomer")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "postservice")] HttpRequest req,
              [CosmosDB(
                 databaseName: "Customer",
                 collectionName: "Customer",
@@ -24,9 +24,9 @@ namespace Service.Function
             log.LogInformation("C# HTTP trigger function processed a Customer.");
 
                 string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                Customer customer = JsonConvert.DeserializeObject<Customer>(requestBody);
+                ServiceDetails serviceDetails = JsonConvert.DeserializeObject<ServiceDetails>(requestBody);
 
-           await documentsOut.AddAsync(customer);            
+           await documentsOut.AddAsync(serviceDetails);            
 
             return new OkResult();
         }

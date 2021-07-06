@@ -3,10 +3,10 @@ using System;
 
 namespace Service.Function
 {
-    public class ServiceDetails
+    public class SaleDetails
         {
             public string customerid { get; set; }
-            public string phonenumber { get; set; }
+            public string Mobilenumber { get; set; }
             public string DeviceId { get; set; }
             public string SaleType { get; set; }
             public string SaleNumber { get; set; }

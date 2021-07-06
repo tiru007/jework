@@ -6,7 +6,7 @@ namespace Service.Function
      public class Customer
     {
         public string id { get; set; }
-        public string phonenumber { get; set; }
+        public string Mobilenumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Service[] service{ get; set; }
